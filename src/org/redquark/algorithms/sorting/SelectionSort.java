@@ -15,7 +15,7 @@ public class SelectionSort {
         int[] arr = {6, 1, 3, 9, 2, 4, 7, 8, 5};
 
         // Method that sorts the array
-        System.out.println("Sorted array using Bubble Sort:");
+        System.out.println("Sorted array using Selection Sort:");
         sort(arr);
         // Method that prints the array
         print(arr);
