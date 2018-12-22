@@ -45,7 +45,7 @@ public class TernarySearch {
                 return mid2;
             }
 
-            // Check in which portion of the array the key lies
+            // Check in which portion of the array the key lies - Recursive approach
             if (key < arr[mid1]) {
                 return search(arr, key, low, mid1 - 1);
             } else if (key > arr[mid2]) {
