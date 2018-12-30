@@ -78,7 +78,6 @@ public class DepthFirstTraversal {
     public static void main(String[] args) {
 
         // Creating the tree
-        // Root of the tree
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);
