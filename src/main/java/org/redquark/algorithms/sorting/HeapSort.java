@@ -9,22 +9,12 @@ package org.redquark.algorithms.sorting;
  */
 public class HeapSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
-
-        // This method sorts the array
-        sort(arr, arr.length);
-
-        // This method prints the sorted array
-        print(arr);
-    }
-
     /**
      * This method sorts the array
      */
-    private static void sort(int[] arr, int n) {
+    public <T extends Comparable<T>> T[] sort(T[] arr) {
+
+        int n = arr.length;
 
         // Build the max heap - rearranging array
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -35,19 +25,21 @@ public class HeapSort {
         for (int i = n - 1; i >= 0; i--) {
 
             // Swap current root with the last element
-            int temp = arr[i];
+            T temp = arr[i];
             arr[i] = arr[0];
             arr[0] = temp;
 
             // Now again call max heapify on the reduced heap
             heapify(arr, i, 0);
         }
+
+        return arr;
     }
 
     /**
      * This method will heapify the heap
      */
-    private static void heapify(int[] arr, int n, int index) {
+    private <T extends Comparable<T>> void heapify(T[] arr, int n, int index) {
 
         // Initialized largest as the root element
         int largest = index;
@@ -57,12 +49,12 @@ public class HeapSort {
         int right = 2 * index + 2;
 
         // If left child is greater than the root node then we need to set largest as the left child
-        if (left < n && arr[left] > arr[largest]) {
+        if (left < n && arr[left].compareTo(arr[largest]) > 0) {
             largest = left;
         }
 
         // If right child is greater than the root node then we need to set largest as the root child
-        if (right < n && arr[right] > arr[largest]) {
+        if (right < n && arr[right].compareTo(arr[largest]) > 0) {
             largest = right;
         }
 
@@ -70,21 +62,12 @@ public class HeapSort {
         if (largest != index) {
 
             // swap arr[index] and arr[largest]
-            int temp = arr[largest];
+            T temp = arr[largest];
             arr[largest] = arr[index];
             arr[index] = temp;
 
             // Recursive call for heapify for all sub nodes
             heapify(arr, n, largest);
-        }
-    }
-
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
         }
     }
 }
