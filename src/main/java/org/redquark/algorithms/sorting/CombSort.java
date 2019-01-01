@@ -10,22 +10,10 @@ package org.redquark.algorithms.sorting;
  */
 public class CombSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {8, 4, 1, 56, 3, -44, 23, -6, 28, 0};
-
-        // This method sorts the array
-        sort(arr, arr.length);
-
-        // This method prints the sorted array
-        print(arr);
-    }
-
     /**
      * This method sorts the array
      */
-    private static void sort(int[] arr, int n) {
+    public <T extends Comparable<T>> T[] sort(T[] arr, int n) {
 
         // Initialize the value of gap
         int gap = n;
@@ -44,10 +32,10 @@ public class CombSort {
             // Compare all the elements
             for (int i = 0; i < n - gap; i++) {
 
-                if (arr[i] > arr[i + gap]) {
+                if (arr[i].compareTo(arr[i + gap]) > 0) {
 
                     // Swap
-                    int temp = arr[i];
+                    T temp = arr[i];
                     arr[i] = arr[i + gap];
                     arr[i + gap] = temp;
 
@@ -56,6 +44,8 @@ public class CombSort {
                 }
             }
         }
+
+        return arr;
     }
 
     /**
@@ -69,14 +59,5 @@ public class CombSort {
         }
 
         return gap;
-    }
-
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
     }
 }
