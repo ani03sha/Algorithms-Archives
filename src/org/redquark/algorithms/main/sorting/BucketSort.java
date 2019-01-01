@@ -1,4 +1,4 @@
-package org.redquark.algorithms.sorting;
+package org.redquark.algorithms.main.sorting;
 
 import java.util.ArrayList;
 import java.util.Arrays;

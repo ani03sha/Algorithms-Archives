@@ -8,7 +8,7 @@
  */
 
 
-package org.redquark.algorithms.sorting;
+package org.redquark.algorithms.main.sorting;
 
 public class QuickSort {
 

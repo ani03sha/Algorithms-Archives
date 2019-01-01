@@ -1,56 +1,49 @@
-package org.redquark.algorithms.sorting;
-
-import java.util.Arrays;
+package org.redquark.algorithms.main.sorting;
 
 /**
  * @author Anirudh Sharma
  * <p>
- * Radix sort is used when elements range from 1 to n^2.
+ * In Counting sort, the frequencies of distinct elements of the array to be sorted is counted and
+ * stored in an auxiliary array, by mapping its value as an index of the auxiliary array.
  */
-public class RadixSort {
+public class CountingSort {
 
     public static void main(String[] args) {
 
         // Array to be sorted
-        int[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
+        int[] arr = {1, 4, 1, 2, 7, 5, 2};
 
         // This method sorts the array
         sort(arr);
 
         // This method prints the sorted array
         print(arr);
+
     }
 
+    /**
+     * This method sorts the array using counting sort technique
+     */
     private static void sort(int[] arr) {
 
-        // Find maximum element in the array so that we can find out maximum number of digits
+        // Finding the maximum element in the array
         int max = arr[0];
 
-        for (int i : arr) {
-            max = Math.max(max, i);
+        for (int i = 1; i < arr.length; i++) {
+
+            max = Math.max(max, arr[i]);
         }
-
-        for (int i = 1; max / i > 0; i = i * 10) {
-
-            countSort(arr, i);
-        }
-    }
-
-    private static void countSort(int[] arr, int exp) {
 
         // Creating the count array - This method will store the count of each element in the unsorted array
-        // Its size should be 10 because we are dealing with 10 digits (0...9)
-        int[] count = new int[10];
-
-        Arrays.fill(count, 0);
+        int[] count = new int[max + 1];
 
         // This loop will store the count of each element in the array
-        for (int i : arr) {
+        for (int i = 0; i < max; i++) {
 
-            count[(i / exp) % 10]++;
+            count[arr[i]]++;
         }
 
-        // This loop will replace the ith index of the count array with the sum of values at the ith and (i-1)th index
+        // This loop will replace the ith index of the count array with the sum of values at the ith and (i-1) index
         for (int i = 1; i < count.length; i++) {
 
             count[i] = count[i] + count[i - 1];
@@ -60,13 +53,13 @@ public class RadixSort {
         int[] places = new int[arr.length];
 
         // This loop will put the ith element at is correct position in the places array
-        for (int i = arr.length - 1; i >= 0; i--) {
+        for (int i = 0; i < places.length; i++) {
 
-            // Getting the value of the index - the value at the count array index will be replaced by the value
+            // Getting the value of the index - the value at the oount array index will be replaced by the value
             // in the original array
             int index = arr[i];
-            places[count[(index / exp) % 10] - 1] = index;
-            count[(index / exp) % 10]--;
+            places[count[index] - 1] = index;
+            count[index]--;
         }
 
         // Copy the places array back to the original array - which will be sorted

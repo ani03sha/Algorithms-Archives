@@ -1,4 +1,4 @@
-package org.redquark.algorithms.sorting;
+package org.redquark.algorithms.main.sorting;
 
 public class MergeSort {
 
@@ -70,17 +70,17 @@ public class MergeSort {
             // Check which subarray has the smaller element.
             if (L[i] <= R[j]) {
 
-                // If left subarray has smaller element, then add it to the main array ...
+                // If left subarray has smaller element, then add it to the org.redquark.algorithms.main array ...
                 arr[k] = L[i];
                 i++;
             } else {
 
-                // ... or if the right subarray has smaller element, then add it to the main array
+                // ... or if the right subarray has smaller element, then add it to the org.redquark.algorithms.main array
                 arr[k] = R[j];
                 j++;
             }
 
-            // Since one value from either left or right subarray is added to the main array,
+            // Since one value from either left or right subarray is added to the org.redquark.algorithms.main array,
             // we are incrementing the k
             k++;
         }

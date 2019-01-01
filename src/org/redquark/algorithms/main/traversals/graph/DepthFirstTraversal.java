@@ -1,4 +1,4 @@
-package org.redquark.algorithms.traversals.graph;
+package org.redquark.algorithms.main.traversals.graph;
 
 import java.util.Arrays;
 import java.util.LinkedList;

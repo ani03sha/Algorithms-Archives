@@ -1,4 +1,4 @@
-package org.redquark.algorithms.traversals.tree;
+package org.redquark.algorithms.main.traversals.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package org.redquark.algorithms.searching;
+package org.redquark.algorithms.main.searching;
 
 import java.util.Scanner;
 
