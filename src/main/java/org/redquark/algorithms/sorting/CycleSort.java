@@ -16,20 +16,12 @@ package org.redquark.algorithms.sorting;
  */
 public class CycleSort {
 
-    public static void main(String[] args) {
+    /**
+     * This method sorts the array
+     */
+    public <T extends Comparable<T>> T[] sort(T[] arr) {
 
-        // Array to be sorted
-        int[] arr = {1, 8, 3, 9, 10, 10, 2, 4};
-
-        // This method sorts the array
-        sort(arr, arr.length);
-
-        // This method prints the sorted array
-        print(arr);
-    }
-
-    private static void sort(int[] arr, int n) {
-
+        int n = arr.length;
 
         // Counter for the number of memory writes
         int count = 0;
@@ -38,14 +30,14 @@ public class CycleSort {
         for (int i = 0; i < n - 2; i++) {
 
             // Initialize item as the starting point
-            int item = arr[i];
+            T item = arr[i];
 
             // Find the position where we want to put the item
             // Basically we count all the smaller elements to the right of the item
             int position = i;
 
             for (int j = i + 1; j < n; j++) {
-                if (arr[j] < item) {
+                if (arr[j].compareTo(item) < 0) {
                     position++;
                 }
             }
@@ -66,7 +58,7 @@ public class CycleSort {
             if (position != i) {
 
                 // Swap
-                int temp = item;
+                T temp = item;
                 item = arr[position];
                 arr[position] = temp;
 
@@ -79,7 +71,7 @@ public class CycleSort {
 
                 // Find the position where we put the element
                 for (int j = i + 1; j < n; j++) {
-                    if (arr[j] < item) {
+                    if (arr[j].compareTo(item) < 0) {
                         position++;
                     }
                 }
@@ -91,7 +83,7 @@ public class CycleSort {
 
                 // Put the element to its correct position
                 if (item != arr[position]) {
-                    int temp = arr[position];
+                    T temp = arr[position];
                     arr[position] = item;
                     item = temp;
 
@@ -101,14 +93,7 @@ public class CycleSort {
         }
 
         System.out.println("Number of memory writes :: " + count);
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
