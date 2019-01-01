@@ -1,23 +1,16 @@
 package org.redquark.algorithms.sorting;
 
+/**
+ * @author Anirudh Sharma
+ */
 public class ShellSort {
-
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {12, 34, 54, 2, 3};
-
-        // This method sorts the array
-        sort(arr, arr.length);
-
-        // This method prints the sorted array
-        print(arr);
-    }
 
     /**
      * This method sorts the array
      */
-    private static void sort(int[] arr, int n) {
+    public <T extends Comparable<T>> T[] sort(T[] arr) {
+
+        int n = arr.length;
 
         // Start with a big gap and then we can reduce it
         for (int gap = n / 2; gap > 0; gap = gap / 2) {
@@ -29,13 +22,13 @@ public class ShellSort {
             for (int i = gap; i < n; i++) {
 
                 // add a[i] to the elements that have been gap sorted save a[i] in temp and make a hole at position i
-                int temp = arr[i];
+                T temp = arr[i];
 
                 // shift earlier gap-sorted elements up until the correct location for a[i] is found
                 int j;
 
-                for (j = i; j >= gap && arr[j - gap] > temp; j = j - gap) {
-                    if (temp < arr[j - gap]) {
+                for (j = i; j >= gap && arr[j - gap].compareTo(temp) > 0; j = j - gap) {
+                    if (temp.compareTo(arr[j - gap]) < 0) {
                         arr[j] = arr[j - gap];
                     } else {
                         break;
@@ -46,14 +39,7 @@ public class ShellSort {
                 arr[j] = temp;
             }
         }
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
