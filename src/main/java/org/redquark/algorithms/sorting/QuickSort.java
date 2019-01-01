@@ -12,23 +12,10 @@ package org.redquark.algorithms.sorting;
 
 public class QuickSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {6, 1, 3, 9, 2, 4, 7, 8, 5};
-
-        // Getting the length of the array
-        int length = arr.length;
-
-        // Method that sorts the array
-        System.out.println("Sorted array using Quick Sort:");
-        sort(arr, 0, length - 1);
-
-        // Method that prints the array
-        print(arr);
-    }
-
-    private static void sort(int[] arr, int l, int r) {
+    /**
+     * This method sorts the array
+     */
+    public <T extends Comparable<T>> T[] sort(T[] arr, int l, int r) {
 
         if (l < r) {
             // Getting the partition index
@@ -38,6 +25,8 @@ public class QuickSort {
             sort(arr, l, partitionIndex - 1); // Before partition index
             sort(arr, partitionIndex + 1, r); // After partition index
         }
+
+        return arr;
     }
 
     /**
@@ -48,42 +37,33 @@ public class QuickSort {
      * pivot and all greater elements to right
      * of pivot
      */
-    private static int partition(int[] arr, int l, int r) {
+    private <T extends Comparable<T>> int partition(T[] arr, int l, int r) {
 
         // Getting the pivot as the last element of the array
-        int pivot = arr[r];
+        T pivot = arr[r];
 
         int i = l - 1;
 
         for (int j = l; j < r; j++) {
 
             // If the current element is smaller or equal to pivot
-            if (arr[j] <= pivot) {
+            if (arr[j].compareTo(pivot) <= 0) {
 
                 // Increment i
                 i++;
 
                 // Swapping arr[i] and arr[j]
-                int temp = arr[i];
+                T temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
 
         // Swapping arr[i+1] and arr[r]
-        int temp = arr[i + 1];
+        T temp = arr[i + 1];
         arr[i + 1] = arr[r];
         arr[r] = temp;
 
         return (i + 1);
-    }
-
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
     }
 }
