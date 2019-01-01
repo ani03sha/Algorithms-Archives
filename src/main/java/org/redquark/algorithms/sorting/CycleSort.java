@@ -3,7 +3,7 @@ package org.redquark.algorithms.sorting;
 /**
  * @author Anirudh Sharma
  * <p>
- * Cycle sort is an in-place sorting Algorithm, unstable sorting algorithm,
+ * Cycle sort is an in-place sorting Algorithm, unstable sorting algorithms,
  * a comparison sort that is theoretically optimal in terms of the total number of writes to the original array.
  * <p>
  * - It is optimal in terms of number of memory writes. It minimizes the number of memory writes to sort

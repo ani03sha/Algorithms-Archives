@@ -3,7 +3,7 @@ package org.redquark.algorithms.sorting;
 /**
  * @author Anirudh Sharma
  * <p>
- * Pigeonhole sorting is a sorting algorithm that is suitable for sorting lists of elements where the number
+ * Pigeonhole sorting is a sorting algorithms that is suitable for sorting lists of elements where the number
  * of elements and the number of possible key values are approximately the same.
  * <p>
  * It requires O(n + Range) time where n is number of elements in input array and ‘Range’ is number of possible

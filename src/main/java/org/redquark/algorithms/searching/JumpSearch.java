@@ -3,7 +3,7 @@ package org.redquark.algorithms.searching;
 /**
  * @author Anirudh Sharma
  * <p>
- * Jump Search is a searching algorithm for sorted arrays.
+ * Jump Search is a searching algorithms for sorted arrays.
  * <p>
  * The basic idea is to check fewer elements (than linear search)
  * by jumping ahead by fixed steps or skipping some elements in

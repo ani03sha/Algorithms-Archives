@@ -3,7 +3,7 @@ package org.redquark.algorithms.sorting;
 /**
  * @author Anirudh Sharma
  * <p>
- * The Selection sort algorithm is based on the idea of finding the minimum or maximum element in an unsorted array
+ * The Selection sort algorithms is based on the idea of finding the minimum or maximum element in an unsorted array
  * and then putting it in its correct position in a sorted array.
  */
 

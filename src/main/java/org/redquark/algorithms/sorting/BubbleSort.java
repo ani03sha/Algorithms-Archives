@@ -2,7 +2,7 @@ package org.redquark.algorithms.sorting;
 
 /**
  * @author Anirudh Sharma
- * Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping
+ * Bubble Sort is the simplest sorting algorithms that works by repeatedly swapping
  * the adjacent elements if they are in wrong order.
  */
 
