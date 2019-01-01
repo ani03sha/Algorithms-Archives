@@ -1,15 +1,14 @@
-package org.redquark.algorithm.sorting;
+package org.redquark.algorithms.sorting;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.redquark.algorithms.sorting.BubbleSort;
 
-public class BubbleSortTest {
+public class SelectionSortTest {
 
-    private BubbleSort bubbleSort = new BubbleSort();
+    private SelectionSort selectionSort = new SelectionSort();
 
     @Test
-    public void bubbleSortIntegerTest() {
+    public void selectionSortIntegerTest() {
 
         // Unsorted integer array
         Integer[] unsorted = new Integer[]{5, 1, 7, 0, 2, 9, 6, 3, 4, 8};
@@ -18,14 +17,11 @@ public class BubbleSortTest {
         Integer[] sorted = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         // Comparing the two integer arrays
-        Assert.assertArrayEquals(sorted, bubbleSort.sort(unsorted));
-
-        // Optimized Bubble Sort
-        Assert.assertArrayEquals(sorted, bubbleSort.optimizedSort(unsorted));
+        Assert.assertArrayEquals(sorted, selectionSort.sort(unsorted));
     }
 
     @Test
-    public void bubbleSortFloatTest() {
+    public void selectionSortFloatTest() {
 
         // Unsorted floating array
         Float[] unsorted = new Float[]{6.7f, 21.1f, 0.9f, -3.2f, 5.9f, -21.3f};
@@ -34,14 +30,11 @@ public class BubbleSortTest {
         Float[] sorted = new Float[]{-21.3f, -3.2f, 0.9f, 5.9f, 6.7f, 21.1f};
 
         // Comparing the two floating arrays
-        Assert.assertArrayEquals(sorted, bubbleSort.sort(unsorted));
-
-        // Optimized Bubble Sort
-        Assert.assertArrayEquals(sorted, bubbleSort.optimizedSort(unsorted));
+        Assert.assertArrayEquals(sorted, selectionSort.sort(unsorted));
     }
 
     @Test
-    public void bubbleSortCharacterTest() {
+    public void selectionSortCharacterTest() {
 
         // Unsorted character array
         Character[] unsorted = new Character[]{'c', 'a', 'b', 'A', 'C', 'B'};
@@ -50,14 +43,11 @@ public class BubbleSortTest {
         Character[] sorted = new Character[]{'A', 'B', 'C', 'a', 'b', 'c'};
 
         // Comparing the two character arrays
-        Assert.assertArrayEquals(sorted, bubbleSort.sort(unsorted));
-
-        // Optimized Bubble Sort
-        Assert.assertArrayEquals(sorted, bubbleSort.optimizedSort(unsorted));
+        Assert.assertArrayEquals(sorted, selectionSort.sort(unsorted));
     }
 
     @Test
-    public void bubbleSortStringTest() {
+    public void selectionSortStringTest() {
 
         // Unsorted String array
         String[] unsorted = new String[]{"Edward", "Linus", "David", "Alan", "Dennis", "Robert", "Ken"};
@@ -66,9 +56,6 @@ public class BubbleSortTest {
         String[] sorted = new String[]{"Alan", "David", "Dennis", "Edward", "Ken", "Linus", "Robert"};
 
         // Comparing the two String arrays
-        Assert.assertArrayEquals(sorted, bubbleSort.sort(unsorted));
-
-        // Optimized Bubble Sort
-        Assert.assertArrayEquals(sorted, bubbleSort.optimizedSort(unsorted));
+        Assert.assertArrayEquals(sorted, selectionSort.sort(unsorted));
     }
 }

@@ -1,15 +1,14 @@
-package org.redquark.algorithm.sorting;
+package org.redquark.algorithms.sorting;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.redquark.algorithms.sorting.MergeSort;
 
-public class MergeSortTest {
+public class QuickSortTest {
 
-    private MergeSort mergeSort = new MergeSort();
+    private QuickSort quickSort = new QuickSort();
 
     @Test
-    public void mergeSortIntegerTest() {
+    public void quickSortIntegerTest() {
 
         // Unsorted integer array
         Integer[] unsorted = new Integer[]{5, 1, 7, 0, 2, 9, 6, 3, 4, 8};
@@ -18,11 +17,11 @@ public class MergeSortTest {
         Integer[] sorted = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         // Comparing the two integer arrays
-        Assert.assertArrayEquals(sorted, mergeSort.sort(Integer.class, unsorted, 0, unsorted.length - 1));
+        Assert.assertArrayEquals(sorted, quickSort.sort(unsorted, 0, unsorted.length - 1));
     }
 
     @Test
-    public void mergeSortFloatTest() {
+    public void quickSortFloatTest() {
 
         // Unsorted floating array
         Float[] unsorted = new Float[]{6.7f, 21.1f, 0.9f, -3.2f, 5.9f, -21.3f};
@@ -31,11 +30,11 @@ public class MergeSortTest {
         Float[] sorted = new Float[]{-21.3f, -3.2f, 0.9f, 5.9f, 6.7f, 21.1f};
 
         // Comparing the two floating arrays
-        Assert.assertArrayEquals(sorted, mergeSort.sort(Float.class, unsorted, 0, unsorted.length - 1));
+        Assert.assertArrayEquals(sorted, quickSort.sort(unsorted, 0, unsorted.length - 1));
     }
 
     @Test
-    public void mergeSortCharacterTest() {
+    public void quickSortCharacterTest() {
 
         // Unsorted character array
         Character[] unsorted = new Character[]{'c', 'a', 'b', 'A', 'C', 'B'};
@@ -44,11 +43,11 @@ public class MergeSortTest {
         Character[] sorted = new Character[]{'A', 'B', 'C', 'a', 'b', 'c'};
 
         // Comparing the two character arrays
-        Assert.assertArrayEquals(sorted, mergeSort.sort(Character.class, unsorted, 0, unsorted.length - 1));
+        Assert.assertArrayEquals(sorted, quickSort.sort(unsorted, 0, unsorted.length - 1));
     }
 
     @Test
-    public void mergeSortStringTest() {
+    public void quickSortStringTest() {
 
         // Unsorted String array
         String[] unsorted = new String[]{"Edward", "Linus", "David", "Alan", "Dennis", "Robert", "Ken"};
@@ -57,6 +56,6 @@ public class MergeSortTest {
         String[] sorted = new String[]{"Alan", "David", "Dennis", "Edward", "Ken", "Linus", "Robert"};
 
         // Comparing the two String arrays
-        Assert.assertArrayEquals(sorted, mergeSort.sort(String.class, unsorted, 0, unsorted.length - 1));
+        Assert.assertArrayEquals(sorted, quickSort.sort(unsorted, 0, unsorted.length - 1));
     }
 }
