@@ -11,37 +11,25 @@ package org.redquark.algorithms.sorting;
  */
 public class PigeonholeSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {8, 3, 2, 7, 4, 6, 8};
-
-        // This method sorts the array
-        sort(arr, arr.length);
-
-        // This method prints the sorted array
-        print(arr);
-    }
-
     /**
      * This method sorts the array
      */
-    private static void sort(int[] arr, int n) {
+    public Integer[] sort(Integer[] arr) {
 
         // Find maximum and minimum elements in array
         int min = arr[0];
         int max = arr[0];
 
-        for (int i = 0; i < n; i++) {
+        for (Integer integer : arr) {
 
             // For minimum value
-            if (min > arr[i]) {
-                min = arr[i];
+            if (min > integer) {
+                min = integer;
             }
 
             // For maximum value
-            if (max < arr[i]) {
-                max = arr[i];
+            if (max < integer) {
+                max = integer;
             }
         }
 
@@ -52,8 +40,8 @@ public class PigeonholeSort {
         int[] pigeonholes = new int[range];
 
         // Put each element of arr in its pigeonhole
-        for (int i = 0; i < n; i++) {
-            pigeonholes[arr[i] - min] = arr[i];
+        for (Integer integer : arr) {
+            pigeonholes[integer - min] = integer;
         }
 
         // Index for the arr
@@ -67,14 +55,7 @@ public class PigeonholeSort {
                 arr[index++] = pigeonhole;
             }
         }
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
