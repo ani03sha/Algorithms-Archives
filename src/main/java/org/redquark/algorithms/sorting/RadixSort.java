@@ -9,34 +9,7 @@ import java.util.Arrays;
  */
 public class RadixSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
-
-        // This method sorts the array
-        sort(arr);
-
-        // This method prints the sorted array
-        print(arr);
-    }
-
-    private static void sort(int[] arr) {
-
-        // Find maximum element in the array so that we can find out maximum number of digits
-        int max = arr[0];
-
-        for (int i : arr) {
-            max = Math.max(max, i);
-        }
-
-        for (int i = 1; max / i > 0; i = i * 10) {
-
-            countSort(arr, i);
-        }
-    }
-
-    private static void countSort(int[] arr, int exp) {
+    private static void countSort(Integer[] arr, int exp) {
 
         // Creating the count array - This method will store the count of each element in the unsorted array
         // Its size should be 10 because we are dealing with 10 digits (0...9)
@@ -57,7 +30,7 @@ public class RadixSort {
         }
 
         // This array will store the sorted array
-        int[] places = new int[arr.length];
+        Integer[] places = new Integer[arr.length];
 
         // This loop will put the ith element at is correct position in the places array
         for (int i = arr.length - 1; i >= 0; i--) {
@@ -73,12 +46,20 @@ public class RadixSort {
         System.arraycopy(places, 0, arr, 0, arr.length);
     }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
+    public Integer[] sort(Integer[] arr) {
+
+        // Find maximum element in the array so that we can find out maximum number of digits
+        int max = arr[0];
+
         for (int i : arr) {
-            System.out.print(i + " ");
+            max = Math.max(max, i);
         }
+
+        for (int i = 1; max / i > 0; i = i * 10) {
+
+            countSort(arr, i);
+        }
+
+        return arr;
     }
 }
