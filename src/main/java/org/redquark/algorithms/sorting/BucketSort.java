@@ -15,22 +15,11 @@ import java.util.List;
  */
 public class BucketSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        float[] arr = {0.897f, 0.565f, 0.656f, 0.1234f, 0.665f, 0.3434f};
-
-        // This method sorts the array
-        sort(arr, arr.length);
-
-        // This method prints the sorted array
-        print(arr);
-    }
-
     /**
      * This method sorts the array
      */
-    private static void sort(float[] arr, int n) {
+    @SuppressWarnings("unchecked")
+    public Float[] sort(Float[] arr, int n) {
 
         List<Float>[] buckets = new List[n];
 
@@ -53,14 +42,7 @@ public class BucketSort {
                 arr[index++] = buckets[i].get(j);
             }
         }
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(float[] arr) {
-        for (float i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
