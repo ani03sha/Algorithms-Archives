@@ -8,28 +8,10 @@ package org.redquark.algorithms.sorting;
 
 public class BubbleSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {6, 1, 3, 9, 2, 4, 7, 8, 5};
-
-        // Method that sorts the array
-        System.out.println("Sorted array using Bubble Sort:");
-        sort(arr);
-        // Method that prints the array
-        print(arr);
-
-        // Method that sorts the array in optimized manner
-        System.out.println("\n\nSorted array using optimized Bubble Sort:");
-        optimizedSort(arr);
-        // Method that prints the array
-        print(arr);
-    }
-
     /**
      * Method to sort the array
      */
-    private static void sort(int[] arr) {
+    public <T extends Comparable<T>> T[] sort(T[] arr) {
 
         // Length of the array
         int length = arr.length;
@@ -40,21 +22,23 @@ public class BubbleSort {
             // (length - i - 1) is for comparing elements which already have been compared in the previous iterations
             for (int j = 0; j < length - i - 1; j++) {
                 // If the elements are in the wrong order...
-                if (arr[j + 1] < arr[j]) {
+                if (arr[j + 1].compareTo(arr[j]) < 0) {
                     // ... then swap them
-                    int temp = arr[j + 1];
+                    T temp = arr[j + 1];
                     arr[j + 1] = arr[j];
                     arr[j] = temp;
                 }
             }
         }
+
+        return arr;
     }
 
     /**
      * Method to sort the array in optimal way - We stop the comparisons when we find that
      * no swap has taken place in an iteration
      */
-    private static void optimizedSort(int[] arr) {
+    public <T extends Comparable<T>> T[] optimizedSort(T[] arr) {
 
         // Length of the array
         int length = arr.length;
@@ -69,9 +53,9 @@ public class BubbleSort {
             // (length - i - 1) is for comparing elements which already have been compared in the previous iterations
             for (int j = 0; j < length - i - 1; j++) {
                 // If the elements are in the wrong order...
-                if (arr[j + 1] < arr[j]) {
+                if (arr[j + 1].compareTo(arr[j]) < 0) {
                     // ... then swap them
-                    int temp = arr[j + 1];
+                    T temp = arr[j + 1];
                     arr[j + 1] = arr[j];
                     arr[j] = temp;
                     // Since the swap occurred we should set the flag
@@ -83,14 +67,7 @@ public class BubbleSort {
                 break;
             }
         }
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
