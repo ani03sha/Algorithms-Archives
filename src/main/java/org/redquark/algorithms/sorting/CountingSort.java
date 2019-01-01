@@ -8,23 +8,10 @@ package org.redquark.algorithms.sorting;
  */
 public class CountingSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {1, 4, 1, 2, 7, 5, 2};
-
-        // This method sorts the array
-        sort(arr);
-
-        // This method prints the sorted array
-        print(arr);
-
-    }
-
     /**
      * This method sorts the array using counting sort technique
      */
-    private static void sort(int[] arr) {
+    public Integer[] sort(Integer[] arr) {
 
         // Finding the maximum element in the array
         int max = arr[0];
@@ -50,7 +37,7 @@ public class CountingSort {
         }
 
         // This array will store the sorted array
-        int[] places = new int[arr.length];
+        Integer[] places = new Integer[arr.length];
 
         // This loop will put the ith element at is correct position in the places array
         for (int i = 0; i < places.length; i++) {
@@ -64,14 +51,7 @@ public class CountingSort {
 
         // Copy the places array back to the original array - which will be sorted
         System.arraycopy(places, 0, arr, 0, arr.length);
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
