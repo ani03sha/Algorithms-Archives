@@ -15,22 +15,10 @@ package org.redquark.algorithms.sorting;
 
 public class InsertionSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {6, 1, 3, 9, 2, 4, 7, 8, 5};
-
-        // Method that sorts the array
-        System.out.println("Sorted array using Insertion Sort:");
-        sort(arr);
-        // Method that prints the array
-        print(arr);
-    }
-
     /**
      * This method sorts the array
      */
-    private static void sort(int[] arr) {
+    public <T extends Comparable<T>> T[] sort(T[] arr) {
 
         // Get the length of the array
         int length = arr.length;
@@ -39,13 +27,13 @@ public class InsertionSort {
         for (int i = 1; i < length; i++) {
 
             // Assuming the first element of the unsorted array is minimum
-            int min = arr[i];
+            T min = arr[i];
 
             // Variable on which inner loop will iterate
             int j = i - 1;
 
             // Inner loop to compare whether the element in the left side is less than the current element ...
-            while (j >= 0 && arr[j] > min) {
+            while (j >= 0 && arr[j].compareTo(min) > 0) {
 
                 // ... moving the left side element to one position forward
                 arr[j + 1] = arr[j];
@@ -55,14 +43,7 @@ public class InsertionSort {
             // Moving current element to its correct position
             arr[j + 1] = min;
         }
-    }
 
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        return arr;
     }
 }
