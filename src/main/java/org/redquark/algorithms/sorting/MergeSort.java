@@ -1,25 +1,13 @@
 package org.redquark.algorithms.sorting;
 
+import java.lang.reflect.Array;
+
 public class MergeSort {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {6, 1, 3, 9, 2, 4, 7, 8, 5};
-
-        // Getting the length of the array
-        int length = arr.length;
-
-        // Method that sorts the array
-        System.out.println("Sorted array using Merge Sort:");
-        sort(arr, 0, length - 1);
-
-        // Method that prints the array
-        print(arr);
-
-    }
-
-    private static void sort(int[] arr, int l, int r) {
+    /**
+     * This method sots the array
+     */
+    public <T extends Comparable<T>> T[] sort(Class<T> type, T[] arr, int l, int r) {
 
         if (l < r) {
 
@@ -27,28 +15,31 @@ public class MergeSort {
             int m = (l + r) / 2;
 
             // Left half
-            sort(arr, l, m);
+            sort(type, arr, l, m);
 
             // Right half
-            sort(arr, m + 1, r);
+            sort(type, arr, m + 1, r);
 
             // Calling the merge function
-            merge(arr, l, m, r);
+            merge(type, arr, l, m, r);
         }
+
+        return arr;
     }
 
     /**
      * This method merges the subarrays in the correct order
      */
-    private static void merge(int[] arr, int l, int m, int r) {
+    @SuppressWarnings("unchecked")
+    private <T extends Comparable<T>> void merge(Class<T> type, T[] arr, int l, int m, int r) {
 
         // Sizes of two subarrays to be merged
         int a = m - l + 1;
         int b = r - m;
 
         // Temporary arrays
-        int[] L = new int[a];
-        int[] R = new int[b];
+        T[] L = (T[]) Array.newInstance(type, a);
+        T[] R = (T[]) Array.newInstance(type, b);
 
         // Putting data into temp arrays
         System.arraycopy(arr, l, L, 0, a);
@@ -68,7 +59,7 @@ public class MergeSort {
         while (i < a && j < b) {
 
             // Check which subarray has the smaller element.
-            if (L[i] <= R[j]) {
+            if (L[i].compareTo(R[j]) <= 0) {
 
                 // If left subarray has smaller element, then add it to the org.redquark.algorithms.main array ...
                 arr[k] = L[i];
@@ -97,15 +88,6 @@ public class MergeSort {
             arr[k] = R[j];
             j++;
             k++;
-        }
-    }
-
-    /**
-     * Method that prints the elements of the array
-     */
-    private static void print(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
         }
     }
 }
