@@ -1,35 +1,14 @@
 package org.redquark.algorithms.searching;
 
-import java.util.Scanner;
-
 /**
  * @author Anirudh Sharma
  */
 public class BinarySearch {
 
-    public static void main(String[] args) {
-
-        // Array to be searched
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-        // Key to be searched
-        int key = new Scanner(System.in).nextInt();
-
-        // Method that will search the key inside an array
-        int index = search(arr, key, 0, arr.length - 1);
-
-        // Check the result based on index
-        if (index != -1) {
-            System.out.println("Key: " + key + " is found at index: " + index);
-        } else {
-            System.out.println("Key: " + key + " is not present in the array");
-        }
-    }
-
     /**
      * Method that will search the key inside an array
      */
-    private static int search(int[] arr, int key, int low, int high) {
+    public <T extends Comparable<T>> int search(T[] arr, T key, int low, int high) {
 
         // Loop until the low is less or equal to high
         while (low <= high) {
@@ -38,16 +17,14 @@ public class BinarySearch {
             int mid = (low + high) / 2;
 
             // Case when the key is present in the left half of the array
-            if (key < arr[mid]) {
+            if (key.compareTo(arr[mid]) < 0) {
 
                 // updating the value of high
                 high = mid - 1;
-
-
             }
 
             // Case when the key is present in the right half of the array
-            if (key > arr[mid]) {
+            if (key.compareTo(arr[mid]) > 0) {
 
                 // Updating the value of low
                 low = mid + 1;
