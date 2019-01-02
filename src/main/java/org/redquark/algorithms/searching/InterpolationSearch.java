@@ -13,24 +13,10 @@ package org.redquark.algorithms.searching;
  */
 public class InterpolationSearch {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610};
-
-        // Element to be searched
-        int key = 610;
-
-        int result = search(arr, key, 0, arr.length - 1);
-
-        if (result != -1) {
-            System.out.println("Element: " + key + " is found at index: " + result);
-        } else {
-            System.out.println("Element is not present in the array");
-        }
-    }
-
-    private static int search(int[] arr, int key, int low, int high) {
+    /**
+     * This method searches the array
+     */
+    public int search(Integer[] arr, int key, int low, int high) {
 
         while (low <= high && key >= arr[low] && key <= arr[high]) {
 
