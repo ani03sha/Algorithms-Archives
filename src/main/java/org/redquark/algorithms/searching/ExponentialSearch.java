@@ -13,27 +13,13 @@ import java.util.Arrays;
  */
 public class ExponentialSearch {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610};
-
-        // Element to be searched
-        int key = 5;
-
-        int result = search(arr, key);
-
-        if (result != -1) {
-            System.out.println("Element: " + key + " is found at index: " + result);
-        } else {
-            System.out.println("Element is not present in the array");
-        }
-    }
-
-    private static int search(int[] arr, int key) {
+    /**
+     * This method searches the key in the passed array
+     */
+    public <T extends Comparable<T>> int search(T[] arr, T key) {
 
         // Base condition
-        if (arr[0] == key) {
+        if (arr[0].compareTo(key) == 0) {
             return 0;
         }
 
@@ -43,7 +29,7 @@ public class ExponentialSearch {
         // This index will be doubled each time if the element is not found
         int index = 1;
 
-        while (index < n && key >= arr[index]) {
+        while (index < n && key.compareTo(arr[index]) >= 0) {
             index = index * 2;
         }
 
