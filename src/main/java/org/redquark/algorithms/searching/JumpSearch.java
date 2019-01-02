@@ -11,24 +11,10 @@ package org.redquark.algorithms.searching;
  */
 public class JumpSearch {
 
-    public static void main(String[] args) {
-
-        // Array to be sorted
-        int[] arr = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610};
-
-        // Element to be searched
-        int key = 144;
-
-        int result = search(arr, key);
-
-        if (result != -1) {
-            System.out.println("Element: " + key + " is found at index: " + result);
-        } else {
-            System.out.println("Element is not present in the array");
-        }
-    }
-
-    private static int search(int[] arr, int key) {
+    /**
+     * This method searches the array for a given key
+     */
+    public <T extends Comparable<T>> int search(T[] arr, T key) {
 
         // Length of the array
         int n = arr.length;
@@ -41,11 +27,11 @@ public class JumpSearch {
 
             // If key is less than or equal to the current element of the array,
             // Then we have found the interval which is from (i-blockSize) to i
-            if (key <= arr[i - 1]) {
+            if (key.compareTo(arr[i - 1]) <= 0) {
 
                 // Perform linear search in the interval
                 for (int j = i - blockSize; j <= i; j++) {
-                    if (key == arr[j]) {
+                    if (key.compareTo(arr[j]) == 0) {
 
                         // Returning the index where the element is found
                         return j;
