@@ -11,8 +11,8 @@ public class TernarySearch {
         if (low <= high) {
 
             // We have to calculate two mid values which will divide the array in three parts
-            int mid1 = low + (high - 1) / 3;
-            int mid2 = high - (high - 1) / 3;
+            int mid1 = low + (high - low) / 3;
+            int mid2 = high - (high - low) / 3;
 
             // Check if the key is equal to the element at mid1 index of the array
             if (key.compareTo(arr[mid1]) == 0) {
